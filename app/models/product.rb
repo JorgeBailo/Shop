@@ -1,4 +1,4 @@
-class Producto < ActiveRecord::Base
+class Product < ActiveRecord::Base
   
   private
   def timestamp_attributes_for_create
