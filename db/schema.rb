@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20140226151810) do
     t.text     "description"
     t.string   "manufacturer"
     t.integer  "units"
-    t.datetime "registred_at"
+    t.datetime "registered_at"
   end
 
 end
