@@ -11,15 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140226145744) do
+ActiveRecord::Schema.define(version: 20140226151810) do
 
   create_table "productos", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.string   "manufacturer"
     t.integer  "units"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "registred_at"
   end
 
 end
