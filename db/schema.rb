@@ -11,7 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140226175946) do
+ActiveRecord::Schema.define(version: 20140315180155) do
+
+  create_table "item_lines", force: true do |t|
+    t.integer  "quantity"
+    t.decimal  "price",      precision: 10, scale: 0
+    t.integer  "order_id"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "item_lines", ["order_id"], name: "index_item_lines_on_order_id", using: :btree
+  add_index "item_lines", ["product_id"], name: "index_item_lines_on_product_id", using: :btree
+
+  create_table "orders", force: true do |t|
+    t.string   "order_status"
+    t.string   "payment"
+    t.text     "address"
+    t.string   "city"
+    t.string   "buyer_name"
+    t.string   "buyer_lastname"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "products", force: true do |t|
     t.string   "name"
@@ -19,6 +42,7 @@ ActiveRecord::Schema.define(version: 20140226175946) do
     t.string   "manufacturer"
     t.integer  "units"
     t.datetime "registered_at"
+    t.string   "category"
   end
 
 end
