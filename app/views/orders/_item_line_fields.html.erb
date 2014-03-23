@@ -1,0 +1,5 @@
+<%= f.label :product_id %> : <%= f.collection_select :product_id, Product.all, :id, :name, {} %>
+<%= f.label :quantity %> : <%= f.text_field :quantity, :size=>"3", :class=>"input-mini" %>
+<%= f.label :price %> : <%= f.text_field :price, :class=>"input-mini" %>
+<%= f.link_to_remove "Remove Item", :class=>"btn btn-mini btn-danger" %>
+
