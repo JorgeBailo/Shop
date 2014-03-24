@@ -16,6 +16,8 @@
   <dd><%= @product.registered_at %></dd>
   <dt><strong><%= model_class.human_attribute_name(:category) %>:</strong></dt>
   <dd><%= @product.category %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
+  <dd><%= number_to_currency(@product.price) %></dd>
 </dl>
 
 <div class="form-actions">
