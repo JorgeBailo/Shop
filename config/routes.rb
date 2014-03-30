@@ -1,4 +1,17 @@
 Shop::Application.routes.draw do
+  get "sessions/create"
+  get "sessions/destroy"
+  
+  controller :sessions do
+    get 'login' => :new
+    post 'login' => :create
+    delete 'logout' => :destroy
+  end
+  
+  match 'signup',  to: 'users#new', via: 'get'
+
+  resources :users
+
   resources :orders
 
   resources :products

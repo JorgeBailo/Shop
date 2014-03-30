@@ -20,12 +20,20 @@
         <span class="icon-bar"></span>
       </a>
       <a class="brand" href="#">Shop</a>
+      <% if session[:user_id] %>
       <div class="nav-collapse">
         <ul class="nav">
           <li><%= link_to "Browse Products", products_path %></li>
           <li><%= link_to "Browse Orders", orders_path %></li>
+          <li><%= link_to "Browse Users",  users_path    %></li>
         </ul>
       </div>
+      <div class="nav-collapse pull-right">
+        <ul class="nav">
+          <li><%= link_to session[:user_name] + ' | Logout', logout_path, method: :delete   %></li>
+        </ul>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>
