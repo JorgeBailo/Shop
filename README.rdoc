@@ -1,28 +1,71 @@
-== README
+= Curso de Rails de ASPgems
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+== Semana 1
 
-Things you may want to cover:
+La primera habilidad a adquirir para este curso es ser capaces de generar un CRUD utilizando los scaffolds de Rails.
 
-* Ruby version
+Para ello lo que haremos será comenzar a desarrollar una pequeña tienda online. Esta semana sólo es necesario realizar la gestión de productos, es decir, su alta, edición, eliminación y, por supuesto, una pantalla para visualizar cada registro.
 
-* System dependencies
+Los productos tendrán los siguientes campos:
 
-* Configuration
+    - Nombre: tipo texto, no más de 255 caracteres
 
-* Database creation
+    - Descripción: Texto largo
 
-* Database initialization
+    - Fecha de alta en el almacén: tipo fecha ­ hora
 
-* How to run the test suite
+    - Fabricante: Tipo texto
 
-* Services (job queues, cache servers, search engines, etc.)
+     Cantidad en el almacen: Numérico
 
-* Deployment instructions
+== Semana 3: Active Record
 
-* ...
+Durante esta tercera semana del curso vamos a desarrollar nuestras habilidades para ser capaces crear migraciones que nos permitan modificar la estructura de nuestra base de datos, aprenderemos como realizar queries usando Active Record y veremos como crear relaciones entre nuestros modelos.
 
+Para ello retomaremos la aplicación de tienda Online que creamos en la primera semana y la ampliaremos para recoger la siguiente funcionalidad:
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+    - Nuestro cliente quiere que se puedan hacer compras sobre los productos que ha introducido en la base de datos usando el scaffold que desarrollamos la primera semana.
+
+    - La estructura que vamos a crear en la base de datos deberá tener por un lado una tabla pedido (Order) para la cuál realizaremos un nuevo scaffold. Este modelo almacenará el estado del pedido, medio de pago, dirección de envío, ciudad de envío, y nombre y apellidos del comprador.
+
+    - Por otro lado, para introducir cada uno de los productos que van en un pedido crearemos un modelo relación que recogerá cada línea de pedido (LineItem) que contendrá el producto que se ha comprado, la cantidad y precio por el que se ha comprado. Para crear este modelo NO lo haremos usando un scaffold para ello tendremos que usar el generador de modelos ya que no necesitamos ni el controlador ni las vistas que crearía el scaffold.
+
+    - Finalmente habrá que conectar estos dos modelos entre si y con productos.
+
+Para realización de este ejercicio no será necesario modificar ni las vistas, ni el controlador de Order para que acepte LineItems. Esa tarea la realizaremos la semana que viene cuandoveamos las vistas y los helpers de los formularios.
+
+Por otro lado, a nuestro cliente se le olvido decirnos que cada producto tiene una categoría, necesaria para clasificar los productos, que se corresponderá con un varchar en base de datos.
+
+Para esta tarea habrá que modificar la tabla Products usando para ello una migración.
+
+== Semana 4: Action View & Assets Pipeline
+
+El cuarto ejercicio del curso de Rails está centrado en las vistas, aunque para completarlo  necesitaremos tocar un poco los modelos y ligeramente un controlador. 
+
+También será el  primero que necesitaremos programar un poco. Para realizar el ejercicio continuaremos trabajando sobre el código de nuestra tienda Online. 
+
+En  esta ocasión nuestro cliente desea que sea posible seleccionar los productos que vamos a  comprar directamente desde el formulario del pedido (Order). 
+
+En concreto, debemos mostrar bajo los campos del pedido, una entrada para cada LineItem,  con su correspondiente cantidad, y un campo para seleccionar el producto que sea desea  comprar. Una vez se guarde este formulario, deberemos crear en base de datos un Order y un LineItem  por cada uno de los productos que se hayan comprado. 
+
+Por otro lado, aunque en primera instancia el formulario deberá mostrar sólo una entrada de  LineItem, deberemos tener disponible un enlace que nos permita añadir más elementos  dinámicamente. Para ello deberemos programar esta funcionalidad usando un poco de  javascript. 
+
+También deberemos permitir el borrado de LineItems, tanto aquellos que han sido guardados en  base de datos como los que todavía no lo han sido. Una vez guardado el Pedido, deberá mostrarse en la pantalla de detalle los datos básicos del  pedido, los productos comprados, junto a su cantidad y su precio correctamente formateado. 
+
+Para finalizar, se valorará positivamente que añadir un poco de colorido a la aplicación usando  para ello scss.
+
+== Semana 5: Action Controller
+
+Durante esta semana aprenderemos el funcionamiento de los controladores en Rails. 
+
+Para ello  necesitaremos aprender a recibir los parámetros de una request, usar filtros y gestionar la  sesión y las cookies. 
+
+Continuando con nuestra pequeña tienda online, nuestro cliente necesita que añadamos la  posibilidad de que los compradores puedan registrarse en la web, y por supuesto iniciar una  sesión antes de hacer un pedido. 
+
+Para la realización de esta funcionalidad necesitaremos guardar los datos del alta de los  usuarios: Nombre, apellidos, email, por supuesto, una contraseña (para esto nos valdría un  scaffold).
+
+Para gestionar la contraseña del usuario deberéis usar el método  has_secure_password de Active Record descrito en el vídeo sobre autorización en la unidad. 
+
+Por otro lado necesitaremos crear un formulario para que el usuario pueda iniciar sesión, para  ello deberemos crear un controlador SessionsController, que será el encargado de autentificar  al usuario, y las vistas correspondientes. Por último deberemos habilitar unos enlaces en la cabecera para que el usuario pueda ir al  formulario de inicio de sesión y cerrar la sesión una vez realizada la compra. 
+
+También sería  interesante, que tanto la gestión de productos como la creación de nuevos pedidos sólo fuera  accesible estando logado en el sistema.
