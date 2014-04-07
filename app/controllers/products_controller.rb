@@ -5,6 +5,9 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+    filtering_params(params).each do |key, value|
+      @products = @products.public_send(key, value) if value.present?
+    end
   end
 
   # GET /products/1
@@ -62,13 +65,19 @@ class ProductsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_product
-      @product = Product.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_product
+    @product = Product.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def product_params
-      params.require(:product).permit(:name, :description, :manufacturer, :units, :category, :price)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def product_params
+    params.require(:product).permit(:name, :description, :manufacturer, :units, :category, :price)
+  end
+    
+  # A list of the param names that can be used for filtering the Product list
+  def filtering_params(params)
+      params.slice(:category_is, :units_up, :price_up, :price_down, :manufacturer_like, :registered_at_after)
+  end
+
 end
