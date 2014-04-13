@@ -1,0 +1,236 @@
+dictionary:
+  email: &email "Email"
+  name: &name "Nombre"
+  password: &password "Contraseña"
+  lastname: &lastname "Apellidos"
+  description: &description "Descripción"
+  show_link: &show_link "Mostrar"
+  back_link: &back_link "Volver"
+  edit_link: &edit_link "Editar"
+  new_link: &new_link "Nuevo"
+  cancel_link: &cancel_link "Volver"
+  delete_link: &delete_link "Eliminar"
+  registered_at: &registered_at "Registrado en"
+  created_at: &created_at "Creado en"
+  remove: &remove "Eliminar"
+  add_item: &add_item "Añadir Producto"
+  manufacturer: &manufacturer "Fabricante"
+  category: &category "Categoría"
+  units: &units "Unidades"
+  price: &price "Precio"
+  actions: &actions 'Acciones'
+  order_status: &order_status "Estado"
+  payment: &payment "Método de pago"
+  address: &address "Dirección de envío"
+  city: &city "Ciudad"
+  buyer_name: &buyer_name "Nombre del cliente"
+  buyer_lastname: &buyer_lastname "Apellidos"
+
+es:
+  remove: *remove
+  add_item: *add_item
+  helpers:
+    submit:
+      create: "Crear %{model}"
+      submit: "Guardar %{model}"
+      update: "Actualizar %{model}"
+    links:
+      show: *show_link
+      edit: *edit_link
+      destroy: *delete_link
+      new: *new_link
+      cancel: *cancel_link
+  date:
+    abbr_day_names:
+      - dom
+      - lun
+      - mar
+      - mié
+      - jue
+      - vie
+      - sáb
+    abbr_month_names:
+      -
+      - ene
+      - feb
+      - mar
+      - abr
+      - may
+      - jun
+      - jul
+      - ago
+      - sep
+      - oct
+      - nov
+      - dic
+    month_names:
+      -
+      - enero
+      - febrero
+      - marzo
+      - abril
+      - mayo
+      - junio
+      - julio
+      - agosto
+      - septiembre
+      - octubre
+      - noviembre
+      - diciembre
+    order:
+      - :day
+      - :month
+      - :year
+  time:
+      am: am
+      formats:
+        default: ! '%d/%m/%Y'
+        long: ! '%d de %B de %Y'
+        short: ! '%d de %b'
+  sessions:
+    new:
+      email: *email
+      password: *password
+  users:
+    index:
+      title: "Listado de usuarios"
+      name: *name
+      email: *email
+      lastname: *lastname
+      show: *show_link
+      edit: *edit_link
+      new: 'Nuevo usuario'
+      delete: *delete_link
+      confirm: '¿Estas seguro?'
+      actions: 'Acciones'
+      created_at: *created_at
+    new:
+      title: 'Nuevo Usuario'
+    edit:
+      title: 'Edición de Usuario'
+  products:
+    product:
+      show: *show_link
+      edit: *edit_link
+      back: *back_link
+      delete: *delete_link
+      confirm: '¿Estas seguro?'
+    index:
+      title: 'Listado de Productos'
+      new_product: 'Nuevo Producto'
+      view_orders: 'Ver Pedidos'
+      name: *name
+      description: *description
+      registered_at: *registered_at
+      manufacturer: *manufacturer
+      category: *category
+      units: *units
+      price: *price
+      actions: 'Acciones'
+      show: *show_link
+    show:
+      title: "Detalle del producto"
+      name: *name
+      description: *description
+      registered_at: *registered_at
+      manufacturer: *manufacturer
+      category: *category
+      units: *units
+      price: *price
+      back: *back_link
+    new:
+      title: "Nuevo Producto"
+    edit:
+      title: "Edición de Producto"
+  orders:
+    index:
+      title: 'Listado de pedidos'
+      new_order_link: 'Nuevo Pedido'
+      view_products_link: 'Ver Productos'
+      order_status: *order_status
+      payment: *payment
+      address: *address
+      city: *city
+      buyer_name: *buyer_name
+      buyer_lastname: *buyer_lastname
+      created_at: *created_at
+      actions: *actions
+      show: *show_link
+      delete: *delete_link
+      edit: *edit_link
+    show:
+      order_status: *order_status
+      payment: *payment
+      address: *address
+      city: *city
+      buyer_name: *buyer_name
+      buyer_lastname: *buyer_lastname
+      products: "Productos"
+      edit: *edit_link
+      back: *back_link
+    edit:
+      title: "Edición de Pedido"
+    new:
+      title: "Nuevo Pedido"
+  activerecord:
+    errors: &errores
+      general_message: "%{errors} para el %{model} a guardar:"
+      #format: ! '%{attribute} %{message}'
+      messages:
+        blank: no puede estar en blanco
+        confirmation: no coincide con la confirmación
+        equal_to: debe ser igual a %{count}
+        inclusion: no está incluido en la lista
+        not_a_number: no es un número
+        too_short: es demasiado corto (%{count} caracteres mínimo)
+        taken: ya está en uso
+      models:
+        user:
+          attributes:
+            email:
+              not_email: "no contiene un email con formato válido"
+    models:
+      user: 'Usuario'
+      product: 'Producto'
+      order: 'Pedido'
+      item_line: 'Línea de Pedido'
+    attributes:
+      user:
+        name: *name
+        email: *email
+        lastname: *lastname
+        password: *password
+        password_confirmation: 'Confirmación Contraseña'
+        created_at: *created_at
+      product:
+        name: *name
+        description: *description
+        registered_at: "Registrado en"
+        manufacturer: "Fabricante"
+        category: "Categoría"
+        units: "Unidades"
+        price: "Precio"
+      order:
+        order_status: *order_status
+        payment: *payment
+        address: *address
+        city: *city
+        buyer_name: *buyer_name
+        buyer_lastname: *buyer_lastname
+        created_at: *created_at
+      item_line:
+        product_id: "Producto"
+        quantity: "Cantidad"
+  error_plural:
+    one: error
+    other: errores
+  sign_in: "Entrar"
+  sign_up: "Registrarse"
+  please_log_in: "Por favor identifiquese con sus credenciales"
+  logout: "Salir"
+  lang_en: "Inglés"
+  lang_es: "Español"
+  browse_products: "Ver Productos"
+  browse_orders: "Ver Pedidos"
+  browse_users: "Ver Usuarios"
+          

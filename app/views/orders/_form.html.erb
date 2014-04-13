@@ -52,7 +52,7 @@
     <%= f.fields_for :item_lines do |builder| %>
       <%= render "item_line_fields", f: builder %>
     <% end %> 
-    <%= link_to_add_fields "Add Item", f, :item_lines %>
+    <%= link_to_add_fields t("add_item"), f, :item_lines %>
   </div>
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>

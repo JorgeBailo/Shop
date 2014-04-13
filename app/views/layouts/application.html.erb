@@ -23,14 +23,16 @@
       <% if session[:user_id] %>
       <div class="nav-collapse">
         <ul class="nav">
-          <li><%= link_to "Browse Products", products_path %></li>
-          <li><%= link_to "Browse Orders", orders_path %></li>
-          <li><%= link_to "Browse Users",  users_path    %></li>
+          <li><%= link_to t("browse_products"), products_path %></li>
+          <li><%= link_to t("browse_orders"), orders_path %></li>
+          <li><%= link_to t("browse_users"),  users_path    %></li>
         </ul>
       </div>
       <div class="nav-collapse pull-right">
         <ul class="nav">
-          <li><%= link_to session[:user_name] + ' | Logout', logout_path, method: :delete   %></li>
+          <li><%= link_to session[:user_name] + ' | ' + t("logout"), logout_path, method: :delete   %></li>
+          <li><%= link_to t('lang_es'), url_for( :locale => 'es' ) %></li>
+          <li><%= link_to t('lang_en'), url_for( :locale => 'en' ) %></li>
         </ul>
       </div>
       <% end %>

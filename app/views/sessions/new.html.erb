@@ -9,18 +9,18 @@
 <% end %>
 <%= form_tag('/login') do %>
   <fieldset>
-    <legend>Please Log In</legend>
+    <legend><%=  t("please_log_in") %></legend>
     <div>
-      <%= label_tag :email, 'email:' %>
+      <%= label_tag :email %>
       <%= text_field_tag :email, params[:email] %>
     </div>
     <div>
-      <%= label_tag :password, 'Password:' %>
+      <%= label_tag :password %>
       <%= password_field_tag :password, params[:password] %>
     </div>
     <div>
-      <%= submit_tag "Login", :class => 'btn btn-primary' %>
+      <%= submit_tag t("sign_in"), :class => 'btn btn-primary' %>
     </div>
   </fieldset>
 <% end %>
-<p>New user? <%= link_to "Sign up now!", signup_path %></p>
+<p><%= link_to t("sign_up"), signup_path %></p>

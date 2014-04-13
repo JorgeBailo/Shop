@@ -5,7 +5,7 @@ class Product < ActiveRecord::Base
   scope :units_up, ->(units) { where('units > ?', units) }
   scope :price_down, ->(price) { where('price < ?', price) }
   scope :price_up, ->(price) { where('price > ?', price) }
-  scope :registered_at_after, ->(date) { where(':registered_at > ?', date) }
+  scope :registered_at_after, ->(date) { where('registered_at > ?', date) }
   scope :manufacturer_like, ->(manufacturer) { where("manufacturer like ?", "#{manufacturer}%") }
   
   validates_presence_of :name, :description, :manufacturer, :units, :category, :price

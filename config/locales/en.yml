@@ -19,5 +19,166 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
+dictionary:
+  email: &email "Email"
+  name: &name "Name"
+  password: &password "Password"
+  lastname: &lastname "Last Name"
+  description: &description "Description"
+  show_link: &show_link "Show"
+  back_link: &back_link "Back"
+  edit_link: &edit_link "Edit"
+  new_link: &new_link "New"
+  cancel_link: &cancel_link "Back"
+  delete_link: &delete_link "Destroy"
+  registered_at: &registered_at "Registered at"
+  created_at: &created_at "Registered at"
+  remove: &remove "Remove"
+  add_item: &add_item "Add Item"
+  manufacturer: &manufacturer "Manufacturer"
+  category: &category "Category"
+  units: &units "Stock"
+  price: &price "Price"
+  actions: &actions 'Actions'
+  order_status: &order_status "Status"
+  payment: &payment "Payment Method"
+  address: &address "Shipping Address"
+  city: &city "Shipping City"
+  buyer_name: &buyer_name "Customer name"
+  buyer_lastname: &buyer_lastname "Customer Last name"
+
 en:
-  hello: "Hello world"
+  remove: *remove
+  add_item: *add_item
+  helpers:
+    submit:
+      create: "Create %{model}"
+      submit: "Save %{model}"
+      update: "Update %{model}"
+    links:
+      show: *show_link
+      edit: *edit_link
+      destroy: *delete_link
+      cancel: *cancel_link
+      new: *new_link
+  sessions:
+    new:
+      title: "Please Sign in"
+      email: *email
+      password: *password
+      submit: "Sign in"
+    create:
+      success: 'Signed in successfully.'
+      error: "User or password incorrect."
+    destroy:
+      success: 'Logged out!'
+  users:
+    index:
+      title: "Listing users"
+      name: *name
+      email: *email
+      lastname: *lastname
+      show: *show_link
+      edit: *edit_link
+      new: 'New user'
+      delete: *delete_link
+      confirm: 'Are you sure?'
+      created_at: *created_at
+    new:
+      title: 'New User'
+    edit:
+      title: 'Editing User'
+  products:
+    product:
+      show: *show_link
+      edit: *edit_link
+      back: *back_link
+      delete: *delete_link
+      confirm: 'Are you sure?'
+    index:
+      title: 'Listing Products'
+      new_product: 'New Product'
+      view_orders: 'View Orders'
+      name: *name
+      description: *description
+      registered_at: *registered_at
+      manufacturer: *manufacturer
+      category: *category
+      units: *units
+      price: *price
+      actions: *actions
+      show: *show_link
+    show:
+      title: "Product Detail ID#%{product_id}"
+      name: *name
+      description: *description
+      registered_at: *registered_at
+      manufacturer: *manufacturer
+      category: *category
+      units: *units
+      price: *price
+      edit: *edit_link
+      back: *back_link
+    new:
+      title: "New Product"
+      back: *back_link
+    edit:
+      title: "Editing Product"
+      back: *back_link
+      show: *show_link
+  orders:
+    index:
+      title: 'Listing Orders'
+      new_order_link: 'New Order'
+      view_products_link: 'View Products'
+      order_status: *order_status
+      payment: *payment
+      address: *address
+      city: *city
+      buyer_name: *buyer_name
+      buyer_lastname: *buyer_lastname
+      actions: *actions
+      show: *show_link
+      delete: *delete_link
+      edit: *edit_link
+    form:
+      submit: "Save Order"
+      add_product: "Add Product"
+    edit:
+      title: "Edit Order"
+    new:
+      title: "New Order"
+    show:
+      title_html: "Order Detail <small>ID#%{order_id}</small>"
+      order_status: *order_status
+      payment: *payment
+      address: *address
+      city: *city
+      buyer_name: *buyer_name
+      buyer_lastname: *buyer_lastname
+      products: "Products"
+      edit: *edit_link
+      back: *back_link
+  activerecord:
+    errors:
+      general_message: "%{errors} prohibited this %{model} from being saved:"
+      models:
+        user:
+          attributes:
+            email:
+              not_email: "is not an valid email"
+    models:
+      user: 'User'
+      product: 'Product'
+  error_plural:
+    one: error
+    other: errors
+  sign_in: "Sign in"
+  sign_up: "Sign up"
+  please_log_in: "Please log in"
+  logout: "Logout"
+  lang_en: "English"
+  lang_es: "Spanish"
+  browse_products: "Browse products"
+  browse_orders: "Browse orders"
+  browse_users: "Browse users"
