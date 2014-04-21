@@ -46,3 +46,13 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'faker'
+  gem 'capybara-webkit'
+end
